@@ -20,21 +20,18 @@ main {
   padding: 0 1.5rem;
 }
 
-/* Headers */
-header {
-  margin-bottom: 4rem;
+/* Header bar */
+.site-header {
+  background-color: #2a2a72; /* deep blue */
+  color: #ffffff;
+  padding: 1rem 2rem;
   text-align: center;
 }
 
-header h1 {
-  font-size: 3rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-
-header .subtitle {
+/* Subtitle */
+.site-header .subtitle {
+  color: #f0f0f0;
   font-size: 1.2rem;
-  color: #f0f0f0; /* header subtitle in light color */
   margin-top: 0.25rem;
 }
 
