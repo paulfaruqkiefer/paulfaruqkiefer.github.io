@@ -1,23 +1,29 @@
+/* Box sizing for all elements */
 * {
   box-sizing: border-box;
-}
-
-body {
-  font-family: "EB Garamond", serif;
-  background: #fafafa;
-  color: #111;
   margin: 0;
+  padding: 0;
 }
 
+/* Base body styles */
+body {
+  font-family: 'EB Garamond', serif;
+  background-color: #f9f9f9; /* very light grey */
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Main content container */
 main {
   max-width: 720px;
   margin: 4rem auto;
   padding: 0 1.5rem;
 }
 
-
+/* Headers */
 header {
   margin-bottom: 4rem;
+  text-align: center;
 }
 
 header h1 {
@@ -26,20 +32,35 @@ header h1 {
   margin-bottom: 0.25rem;
 }
 
-.subtitle {
+header .subtitle {
   font-size: 1.2rem;
-  color: #555;
+  color: #f0f0f0; /* header subtitle in light color */
+  margin-top: 0.25rem;
 }
 
-a.button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.4rem 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 3px;
+/* Navigation bar */
+.site-header {
+  background-color: #2a2a72; /* deep blue */
+  color: #ffffff;
+  padding: 1rem 2rem;
 }
 
+.top-nav {
+  margin-top: 0.5rem;
+}
 
+.top-nav a {
+  color: #ffd700; /* golden accent */
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 600;
+}
+
+.top-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Headings */
 h2 {
   font-size: 1.6rem;
   margin-top: 3rem;
@@ -52,6 +73,7 @@ h3 {
   margin-top: 1.5rem;
 }
 
+/* Text elements */
 p, li {
   font-size: 1.05rem;
   line-height: 1.6;
@@ -63,16 +85,18 @@ p, li {
   margin-top: -0.5rem;
 }
 
+/* Sections */
 section {
   margin-top: 2.5rem;
 }
 
 section.highlight {
-  background: #f2f2f2;
+  background-color: #f2f2f2;
   padding: 1.5rem;
   border-radius: 4px;
 }
 
+/* Links */
 a {
   color: #0645ad;
   text-decoration: none;
@@ -82,9 +106,32 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Button-style links */
+a.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+footer a {
+  color: #2a2a72;
+}
+
+/* Print-friendly styles */
 @media print {
   body {
     background: white;
+    color: black;
   }
 
   main {
