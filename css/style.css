@@ -44,16 +44,17 @@ header .subtitle {
   color: #ffffff;
   padding: 1rem 2rem;
 }
-
 .top-nav {
+  display: flex;
+  justify-content: center; /* center the links */
+  gap: 2rem; /* space between each link */
   margin-top: 0.5rem;
 }
 
 .top-nav a {
   color: #ffd700; /* golden accent */
-  text-decoration: none;
-  margin: 0 1rem;
   font-weight: 600;
+  text-decoration: none;
 }
 
 .top-nav a:hover {
