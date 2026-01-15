@@ -13,6 +13,13 @@ body {
   line-height: 1.6;
 }
 
+main {
+  max-width: 720px;      /* readable line length */
+  margin: 4rem auto;     /* centers content + vertical spacing */
+  padding: 0 1.5rem;     /* breathing room on small screens */
+}
+
+
 /* Header (full width with background image) */
 .site-header {
   min-height: 65vh;
