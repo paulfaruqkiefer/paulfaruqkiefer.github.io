@@ -42,18 +42,36 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const job = button.dataset.job;
 
+      /* Toggle off if same job clicked */
       if (currentJob === job) {
         layout.classList.remove("panel-open");
         panel.innerHTML = "";
+        panel.style.marginTop = "";
         currentJob = null;
         return;
       }
 
+      /* Populate panel */
       const items = sampleContent[job] || ["No samples yet."];
       panel.innerHTML = `
-        <h3>Sample Work</h3>
-        <ul>${items.map(i => `<li>${i}</li>`).join("")}</ul>
+        <h2>Sample Work</h2>
+        <ul>${items.map(item => `<li>${item}</li>`).join("")}</ul>
       `;
+
+      /* Reset margin before recalculating */
+      panel.style.marginTop = "0px";
+
+      /* Align panel top to button */
+      const buttonRect = button.getBoundingClientRect();
+      const layoutRect = layout.getBoundingClientRect();
+
+      const offsetTop =
+        buttonRect.top -
+        layoutRect.top +
+        window.scrollY -
+        8; // subtle visual breathing room
+
+      panel.style.marginTop = `${offsetTop}px`;
 
       layout.classList.add("panel-open");
       currentJob = job;
