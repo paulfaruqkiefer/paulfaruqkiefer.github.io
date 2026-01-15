@@ -15,7 +15,7 @@ body {
 
 /* Header (full width with background image) */
 .site-header {
-  min-height: 60vh;
+  min-height: 65vh;
   background-image: linear-gradient(
       rgba(0, 0, 0, 0.45),
       rgba(0, 0, 0, 0.45)
