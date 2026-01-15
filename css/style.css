@@ -1,4 +1,4 @@
-/* Box sizing for all elements */
+/* Reset & box sizing */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,9 +8,60 @@
 /* Base body styles */
 body {
   font-family: 'EB Garamond', serif;
-  background-color: #f9f9f9; /* very light grey */
+  background-color: #f9f9f9;
   color: #222;
   line-height: 1.6;
+}
+
+/* Header (full width with background image) */
+.site-header {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    url("../images/laurel.jpg");
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  padding: 4rem 2rem;
+}
+
+/* Header inner container */
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Header typography */
+.site-header h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.site-header .subtitle {
+  font-size: 1.3rem;
+  color: #f0f0f0;
+  margin-top: 0.25rem;
+}
+
+/* Navigation */
+.top-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.top-nav a {
+  color: #ffd700;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.top-nav a:hover {
+  text-decoration: underline;
 }
 
 /* Main content container */
@@ -20,42 +71,15 @@ main {
   padding: 0 1.5rem;
 }
 
-/* Header bar */
-.site-header {
-  background-color: #2a2a72; /* deep blue */
-  color: #ffffff;
-  padding: 1rem 2rem;
-  text-align: center;
+/* Sections */
+section {
+  margin-top: 2.5rem;
 }
 
-/* Subtitle */
-.site-header .subtitle {
-  color: #f0f0f0;
-  font-size: 1.2rem;
-  margin-top: 0.25rem;
-}
-
-/* Navigation bar */
-.site-header {
-  background-color: #2a2a72; /* deep blue */
-  color: #ffffff;
-  padding: 1rem 2rem;
-}
-.top-nav {
-  display: flex;
-  justify-content: center; /* center the links */
-  gap: 2rem; /* space between each link */
-  margin-top: 0.5rem;
-}
-
-.top-nav a {
-  color: #ffd700; /* golden accent */
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.top-nav a:hover {
-  text-decoration: underline;
+section.highlight {
+  background-color: #f2f2f2;
+  padding: 1.5rem;
+  border-radius: 4px;
 }
 
 /* Headings */
@@ -71,8 +95,9 @@ h3 {
   margin-top: 1.5rem;
 }
 
-/* Text elements */
-p, li {
+/* Text */
+p,
+li {
   font-size: 1.05rem;
   line-height: 1.6;
 }
@@ -81,17 +106,6 @@ p, li {
   font-size: 0.95rem;
   color: #666;
   margin-top: -0.5rem;
-}
-
-/* Sections */
-section {
-  margin-top: 2.5rem;
-}
-
-section.highlight {
-  background-color: #f2f2f2;
-  padding: 1.5rem;
-  border-radius: 4px;
 }
 
 /* Links */
@@ -125,7 +139,7 @@ footer a {
   color: #2a2a72;
 }
 
-/* Print-friendly styles */
+/* Print styles */
 @media print {
   body {
     background: white;
