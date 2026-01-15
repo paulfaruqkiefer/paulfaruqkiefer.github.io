@@ -81,29 +81,39 @@ body {
   text-decoration: underline;
 }
 
-/* Main content container */
-main {
-  max-width: 720px;
-  margin: 4rem auto;
+/* Resume layout: main + sample panel */
+.resume-layout {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 3rem auto;
   padding: 0 1.5rem;
 }
 
-/* Sections */
-section {
-  margin-top: 2.5rem;
+.resume-column {
+  flex: 1;
+  min-width: 320px;
+  transition: margin-right 0.4s ease;
 }
 
-section.highlight {
+.samples-panel {
+  width: 350px;
+  max-width: 40%;
   background-color: #f2f2f2;
+  border-radius: 6px;
   padding: 1.5rem;
-  border-radius: 4px;
+  display: none; /* hidden until JS triggers */
+  overflow-y: auto;
+  transition: all 0.4s ease;
 }
 
+/* Resume sections */
 .resume-section {
   background-color: #f2f2f2;
   padding: 2rem;
   border-radius: 6px;
-  margin: 3rem auto;
+  margin-bottom: 2.5rem;
 }
 .resume-section h2 {
   margin-top: 0;
@@ -111,6 +121,22 @@ section.highlight {
 .resume-section ul {
   margin-top: 0.75rem;
   padding-left: 1.25rem;
+}
+
+/* Sample-work button */
+.samples-toggle {
+  margin-left: 1rem;
+  font-size: 0.85rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.samples-toggle:hover {
+  background-color: #e6e6e6;
+  transform: translateY(-1px);
 }
 
 /* Headings */
@@ -124,6 +150,9 @@ h2 {
 h3 {
   font-size: 1.2rem;
   margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Text */
@@ -170,6 +199,18 @@ footer a {
   color: #2a2a72;
 }
 
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .resume-layout {
+    flex-direction: column;
+  }
+  .samples-panel {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 2rem;
+  }
+}
+
 /* Print styles */
 @media print {
   body {
@@ -187,5 +228,9 @@ footer a {
   a {
     color: black;
     text-decoration: none;
+  }
+
+  .samples-panel {
+    display: none !important;
   }
 }
