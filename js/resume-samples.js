@@ -1,43 +1,40 @@
 // Wait until DOM is loaded
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".samples-toggle");
   const panel = document.querySelector(".samples-panel");
-  const resumeColumn = document.querySelector(".resume-column");
+  const layout = document.querySelector(".resume-layout");
 
-  // Track which job's panel is currently open
   let currentJob = null;
 
-  // Placeholder sample content
   const sampleContent = {
     "wisconsin-watch": [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Phasellus imperdiet, nulla et dictum interdum.",
-      "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices."
+      "Lorem ipsum dolor sit amet.",
+      "Phasellus imperdiet nulla et dictum.",
+      "Vestibulum ante ipsum primis."
     ],
     "washington-post": [
-      "Suspendisse potenti. Nam feugiat, velit at suscipit.",
-      "Integer nec odio. Praesent libero. Sed cursus ante dapibus.",
-      "Mauris massa. Vestibulum lacinia arcu eget nulla."
+      "Suspendisse potenti.",
+      "Integer nec odio.",
+      "Mauris massa."
     ],
     "investigatewest": [
-      "Curabitur sodales ligula in libero. Sed dignissim lacinia nunc.",
-      "Curabitur tortor. Pellentesque nibh. Aenean quam.",
-      "In scelerisque sem at dolor. Maecenas mattis."
+      "Curabitur sodales ligula.",
+      "Pellentesque nibh.",
+      "In scelerisque sem."
     ],
     "howard-center": [
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "Ut enim ad minim veniam, quis nostrud exercitation."
+      "Mapped hazmat rail routes.",
+      "Analyzed lobbying tactics.",
+      "Investigated disclosure flaws."
     ],
     "delaware-public-media": [
-      "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.",
-      "Vestibulum ac diam sit amet quam vehicula elementum.",
-      "Donec sollicitudin molestie malesuada."
+      "Covered housing policy.",
+      "Reported on overdose response.",
+      "Tracked corporate enfranchisement."
     ],
     "publicola": [
-      "Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.",
-      "Proin eget tortor risus. Donec rutrum congue leo eget malesuada.",
-      "Vivamus suscipit tortor eget felis porttitor volutpat."
+      "Investigated police misconduct.",
+      "Developed data reporting skills."
     ]
   };
 
@@ -45,22 +42,20 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", () => {
       const job = button.dataset.job;
 
-      // Close panel if same button clicked
       if (currentJob === job) {
+        layout.classList.remove("panel-open");
         panel.innerHTML = "";
-        panel.style.display = "none";
-        resumeColumn.style.width = "";
         currentJob = null;
         return;
       }
 
-      // Fill panel with sample content
-      const items = sampleContent[job] || ["No samples available yet."];
-      panel.innerHTML = `<h3>Sample Work</h3><ul>${items.map(i => `<li>${i}</li>`).join("")}</ul>`;
+      const items = sampleContent[job] || ["No samples yet."];
+      panel.innerHTML = `
+        <h3>Sample Work</h3>
+        <ul>${items.map(i => `<li>${i}</li>`).join("")}</ul>
+      `;
 
-      // Show panel and adjust layout
-      panel.style.display = "block";
-      resumeColumn.style.width = "50%";
+      layout.classList.add("panel-open");
       currentJob = job;
     });
   });
