@@ -99,6 +99,20 @@ section.highlight {
   border-radius: 4px;
 }
 
+.resume-section {
+  background-color: #f2f2f2;
+  padding: 2rem;
+  border-radius: 6px;
+  margin: 3rem auto;
+}
+.resume-section h2 {
+  margin-top: 0;
+}
+.resume-section ul {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+}
+
 /* Headings */
 h2 {
   font-size: 1.6rem;
