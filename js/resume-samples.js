@@ -1,4 +1,3 @@
-// Wait until DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".samples-toggle");
   const panel = document.querySelector(".samples-panel");
@@ -42,36 +41,33 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const job = button.dataset.job;
 
-      /* Toggle off if same job clicked */
+      // Close if same job clicked
       if (currentJob === job) {
         layout.classList.remove("panel-open");
+        panel.style.display = "none";
+        panel.style.top = "";
         panel.innerHTML = "";
-        panel.style.marginTop = "";
         currentJob = null;
         return;
       }
 
-      /* Populate panel */
+      // Fill panel
       const items = sampleContent[job] || ["No samples yet."];
       panel.innerHTML = `
         <h2>Sample Work</h2>
         <ul>${items.map(item => `<li>${item}</li>`).join("")}</ul>
       `;
 
-      /* Reset margin before recalculating */
-      panel.style.marginTop = "0px";
-
-      /* Align panel top to button */
+      // Align panel top to button
       const buttonRect = button.getBoundingClientRect();
       const layoutRect = layout.getBoundingClientRect();
 
-      const offsetTop =
-        buttonRect.top -
-        layoutRect.top +
-        window.scrollY -
-        8; // subtle visual breathing room
+      const offsetTop = buttonRect.top - layoutRect.top + layout.scrollTop;
 
-      panel.style.marginTop = `${offsetTop}px`;
+      panel.style.top = `${offsetTop}px`;
+
+      // Show panel
+      panel.style.display = "block";
 
       layout.classList.add("panel-open");
       currentJob = job;
