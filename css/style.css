@@ -79,42 +79,38 @@ main {
    Resume layout
 ========================= */
 .resume-layout {
+  position: relative;       /* required for absolute positioning of panel */
   display: flex;
-  justify-content: center;
-  gap: 0;
+  justify-content: flex-start;
+  gap: 2rem;
   max-width: 1200px;
   margin: 3rem auto;
   padding: 0 1.5rem;
-  position: relative;              /* anchor for panel alignment */
   transition: gap 0.3s ease;
 }
 
 .resume-column {
   flex: 1;
   min-width: 320px;
+  transition: flex 0.3s ease;
 }
 
 /* =========================
-   Samples panel
+   Samples panel (mirrored)
 ========================= */
 .samples-panel {
-  align-self: flex-start;           /* align with button top */
-  flex: 0 0 340px;
+  position: absolute;       /* allows top alignment with button */
+  right: 0;
+  top: 0;                   /* will be set by JS */
+  width: 340px;
   background-color: #f2f2f2;
   border-radius: 6px;
-  padding: 1.75rem 1.5rem 2rem;     /* subtle top offset + bottom breathing room */
+  padding: 2rem 1.5rem;
   display: none;
-  overflow: visible;
-  margin-bottom: 3rem;
-
   opacity: 0;
   transform: translateX(12px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Panel open state */
-.resume-layout.panel-open {
-  gap: 2rem;
+  transition: opacity 0.3s ease, transform 0.3s ease, top 0.3s ease;
+  z-index: 10;
 }
 
 .resume-layout.panel-open .samples-panel {
@@ -156,10 +152,12 @@ h3 {
   border-radius: 4px;
   cursor: pointer;
   white-space: nowrap;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .samples-toggle:hover {
   background-color: #e6e6e6;
+  transform: translateY(-1px);
 }
 
 /* Lists */
@@ -188,6 +186,7 @@ h2 {
 p,
 li {
   font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 /* Links */
@@ -224,6 +223,7 @@ footer a {
   }
 
   .samples-panel {
+    position: relative;
     width: 100%;
     max-width: 100%;
     margin-top: 2rem;
