@@ -21,7 +21,7 @@ body {
     ),
     url("../images/laurel.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: center 30%;
   color: #ffffff;
   padding: 4rem 2rem;
 }
