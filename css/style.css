@@ -171,6 +171,19 @@ main {
   padding-left: 1.25rem;
 }
 
+.resume-layout.panel-open {
+  gap: 2rem;                   /* visible center gutter */
+}
+
+.resume-layout.panel-open .samples-panel {
+  display: block;
+}
+
+.resume-layout.panel-open .resume-column {
+  flex: 1;
+}
+
+
 /* Headings */
 h2 {
   font-size: 1.6rem;
