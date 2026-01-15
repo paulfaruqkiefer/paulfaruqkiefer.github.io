@@ -183,6 +183,16 @@ main {
   flex: 1;
 }
 
+.samples-panel {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.resume-layout.panel-open .samples-panel {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 
 /* Headings */
 h2 {
