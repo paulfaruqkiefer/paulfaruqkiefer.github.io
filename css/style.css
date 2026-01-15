@@ -251,13 +251,6 @@ footer a {
     -webkit-font-smoothing: antialiased;
   }
 
-
-  main {
-  max-width: 720px;   /* sensible line length for reading */
-  margin: 4rem auto;  /* top/bottom spacing, auto left/right centers it */
-  padding: 0 1.5rem;  /* small padding so text doesn't touch edges on small screens */
-}
-
   a {
     color: black;
     text-decoration: none;
