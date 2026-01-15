@@ -1,11 +1,12 @@
-/* Reset & box sizing */
+/* =========================
+   Reset & base styles
+========================= */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Base body styles */
 body {
   font-family: 'EB Garamond', serif;
   background-color: #f9f9f9;
@@ -13,49 +14,35 @@ body {
   line-height: 1.6;
 }
 
+/* Constrained content */
 main {
-  max-width: 720px;      /* readable line length */
-  margin: 4rem auto;     /* centers content + vertical spacing */
-  padding: 0 1.5rem;     /* breathing room on small screens */
+  max-width: 720px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
 }
 
-
-/* Header (full width with background image) */
+/* =========================
+   Header (full width)
+========================= */
 .site-header {
   min-height: 65vh;
-  background-image: linear-gradient(
-      rgba(0, 0, 0, 0.45),
-      rgba(0, 0, 0, 0.45)
-    ),
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
     url("../images/laurel.jpg");
   background-size: cover;
   background-position: center 40%;
-  color: #ffffff;
+  color: #fff;
   padding: 4rem 2rem;
-
   display: flex;
   align-items: center;
 }
 
-@media (max-width: 600px) {
-  .site-header {
-    min-height: 50vh;
-    padding: 3rem 1.5rem;
-  }
-
-  .site-header h1 {
-    font-size: 2.3rem;
-  }
-}
-
-/* Header inner container */
 .header-inner {
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
 }
 
-/* Header typography */
 .site-header h1 {
   font-size: 3rem;
   font-weight: 600;
@@ -63,9 +50,9 @@ main {
 
 .site-header .subtitle {
   font-size: 1.3rem;
-  color: #f0f0f0;
   margin-top: 0.25rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  color: #f0f0f0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
 }
 
 /* Navigation */
@@ -88,46 +75,72 @@ main {
   text-decoration: underline;
 }
 
-/* Resume layout: main + sample panel */
+/* =========================
+   Resume layout
+========================= */
 .resume-layout {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 0;
   max-width: 1200px;
   margin: 3rem auto;
   padding: 0 1.5rem;
+  transition: gap 0.3s ease;
 }
 
 .resume-column {
   flex: 1;
   min-width: 320px;
-  transition: margin-right 0.4s ease;
 }
 
+/* =========================
+   Samples panel (mirrored)
+========================= */
 .samples-panel {
-  flex: 0 0 340px;              /* fixed panel width */
+  flex: 0 0 340px;
   background-color: #f2f2f2;
   border-radius: 6px;
   padding: 2rem 1.5rem;
-  display: none;               /* hidden by default */
+  display: none;
   overflow-y: auto;
+
+  opacity: 0;
+  transform: translateX(12px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* Panel open state */
+.resume-layout.panel-open {
+  gap: 2rem;
+}
 
-/* Resume sections */
+.resume-layout.panel-open .samples-panel {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* =========================
+   Resume sections
+========================= */
 .resume-section {
   background-color: #f2f2f2;
   padding: 2rem;
   border-radius: 6px;
   margin-bottom: 2.5rem;
 }
+
 .resume-section h2 {
   margin-top: 0;
 }
-.resume-section ul {
-  margin-top: 0.75rem;
-  padding-left: 1.25rem;
+
+/* Experience headings */
+h3 {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Sample-work button */
@@ -139,62 +152,29 @@ main {
   background-color: #fff;
   border-radius: 4px;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
 }
+
 .samples-toggle:hover {
   background-color: #e6e6e6;
-  transform: translateY(-1px);
 }
 
-.samples-panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 340px;
-  height: 100%;
-  background-color: #f2f2f2;
-  border-left: 1px solid #ccc;
-  padding: 2rem 1.5rem;
-  overflow-y: auto;
-  box-shadow: -4px 0 8px rgba(0,0,0,0.1);
-  z-index: 1000;
-}
-
-.samples-panel h2 {
-  font-size: 1.4rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-.samples-panel ul {
-  list-style-type: disc;
+/* Lists */
+.resume-section ul {
+  margin-top: 0.75rem;
   padding-left: 1.25rem;
 }
 
-.resume-layout.panel-open {
-  gap: 2rem;                   /* visible center gutter */
+/* Meta text */
+.meta {
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: -0.5rem;
 }
 
-.resume-layout.panel-open .samples-panel {
-  display: block;
-}
-
-.resume-layout.panel-open .resume-column {
-  flex: 1;
-}
-
-.samples-panel {
-  opacity: 0;
-  transform: translateX(10px);
-}
-
-.resume-layout.panel-open .samples-panel {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-
-/* Headings */
+/* =========================
+   Typography
+========================= */
 h2 {
   font-size: 1.6rem;
   margin-top: 3rem;
@@ -202,25 +182,9 @@ h2 {
   padding-bottom: 0.25rem;
 }
 
-h3 {
-  font-size: 1.2rem;
-  margin-top: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Text */
 p,
 li {
   font-size: 1.05rem;
-  line-height: 1.6;
-}
-
-.meta {
-  font-size: 0.95rem;
-  color: #666;
-  margin-top: -0.5rem;
 }
 
 /* Links */
@@ -233,16 +197,9 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Button-style links */
-a.button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.4rem 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 3px;
-}
-
-/* Footer */
+/* =========================
+   Footer
+========================= */
 footer {
   text-align: center;
   padding: 1.5rem;
@@ -254,24 +211,30 @@ footer a {
   color: #2a2a72;
 }
 
-/* Responsive adjustments */
+/* =========================
+   Responsive behavior
+========================= */
 @media (max-width: 900px) {
   .resume-layout {
     flex-direction: column;
+    gap: 0;
   }
+
   .samples-panel {
     width: 100%;
     max-width: 100%;
     margin-top: 2rem;
+    transform: none;
   }
 }
 
-/* Print styles */
+/* =========================
+   Print styles
+========================= */
 @media print {
   body {
     background: white;
     color: black;
-    -webkit-font-smoothing: antialiased;
   }
 
   a {
