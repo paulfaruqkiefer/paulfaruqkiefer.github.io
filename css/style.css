@@ -105,15 +105,15 @@ main {
 }
 
 .samples-panel {
-  width: 350px;
-  max-width: 40%;
+  flex: 0 0 340px;              /* fixed panel width */
   background-color: #f2f2f2;
   border-radius: 6px;
-  padding: 1.5rem;
-  display: none; /* hidden until JS triggers */
+  padding: 2rem 1.5rem;
+  display: none;               /* hidden by default */
   overflow-y: auto;
-  transition: all 0.4s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
 
 /* Resume sections */
 .resume-section {
