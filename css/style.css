@@ -15,15 +15,19 @@ body {
 
 /* Header (full width with background image) */
 .site-header {
+  min-height: 60vh;
   background-image: linear-gradient(
       rgba(0, 0, 0, 0.45),
       rgba(0, 0, 0, 0.45)
     ),
     url("../images/laurel.jpg");
   background-size: cover;
-  background-position: center 30%;
+  background-position: center 40%;
   color: #ffffff;
   padding: 4rem 2rem;
+
+  display: flex;
+  align-items: center;
 }
 
 /* Header inner container */
