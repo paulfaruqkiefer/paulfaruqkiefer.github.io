@@ -114,7 +114,22 @@ main {
   margin-bottom: 0.75rem;
 }
 
-  /* critical fixes */
+/* Close button */
+.samples-close {
+  font-size: 1.2rem;
+  line-height: 1;
+  border: none;
+  background: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+}
+
+.samples-close:hover {
+  color: #000;
+}
+
+  /* panel dimensions */
   height: auto;
   align-self: flex-start;
 
