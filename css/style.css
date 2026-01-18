@@ -106,7 +106,7 @@ main {
   flex: 0 0 340px;          /* fixed width */
   background-color: #f2f2f2;
   border-radius: 6px;
-  padding: 2rem 1.5rem;     /* bottom spacing lives here */
+  padding: 1rem 1rem;     /* bottom spacing lives here */
   display: none;
 
   /* critical fixes */
