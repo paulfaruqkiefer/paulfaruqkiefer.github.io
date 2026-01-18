@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".samples-toggle");
   const panel = document.querySelector(".samples-panel");
   const layout = document.querySelector(".resume-layout");
+  const resumeColumn = document.querySelector(".resume-column");
 
   let currentJob = null;
 
@@ -41,34 +42,32 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const job = button.dataset.job;
 
-      // Close if same job clicked
+      /* Close if clicking same job */
       if (currentJob === job) {
         layout.classList.remove("panel-open");
-        panel.style.display = "none";
-        panel.style.top = "";
         panel.innerHTML = "";
+        panel.style.marginTop = "";
         currentJob = null;
         return;
       }
 
-      // Fill panel
+      /* Populate panel */
       const items = sampleContent[job] || ["No samples yet."];
       panel.innerHTML = `
         <h2>Sample Work</h2>
-        <ul>${items.map(item => `<li>${item}</li>`).join("")}</ul>
+        <ul>
+          ${items.map(item => `<li>${item}</li>`).join("")}
+        </ul>
       `;
 
-      // Align panel top to button
+      /* Vertical alignment */
       const buttonRect = button.getBoundingClientRect();
-      const layoutRect = layout.getBoundingClientRect();
+      const columnRect = resumeColumn.getBoundingClientRect();
+      const offset = buttonRect.top - columnRect.top;
 
-      const offsetTop = buttonRect.top - layoutRect.top + layout.scrollTop;
+      panel.style.marginTop = `${offset}px`;
 
-      panel.style.top = `${offsetTop}px`;
-
-      // Show panel
-      panel.style.display = "block";
-
+      /* Open panel */
       layout.classList.add("panel-open");
       currentJob = job;
     });
