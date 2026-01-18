@@ -109,6 +109,11 @@ main {
   padding: 1rem 1rem;     /* bottom spacing lives here */
   display: none;
 
+.samples-panel h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
   /* critical fixes */
   height: auto;
   align-self: flex-start;
