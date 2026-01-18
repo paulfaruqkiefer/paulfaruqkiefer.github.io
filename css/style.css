@@ -103,33 +103,12 @@ main {
    Samples panel (IN FLOW, CONTENT-SIZED)
 ========================= */
 .samples-panel {
-  flex: 0 0 340px;          /* fixed width */
+  flex: 0 0 340px;
   background-color: #f2f2f2;
   border-radius: 6px;
-  padding: 1rem 1rem;     /* bottom spacing lives here */
+  padding: 1rem 1rem;
   display: none;
 
-.samples-panel h2 {
-  margin-top: 0;
-  margin-bottom: 0.75rem;
-}
-
-/* Close button */
-.samples-close {
-  font-size: 1.2rem;
-  line-height: 1;
-  border: none;
-  background: none;
-  color: #666;
-  cursor: pointer;
-  padding: 0;
-}
-
-.samples-close:hover {
-  color: #000;
-}
-
-  /* panel dimensions */
   height: auto;
   align-self: flex-start;
 
@@ -147,6 +126,37 @@ main {
   display: block;
   opacity: 1;
   transform: translateX(0);
+}
+
+/* =========================
+   Samples panel header
+========================= */
+.samples-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Kill global h2 spacing inside panel */
+.samples-panel-header h2 {
+  margin: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Close button */
+.samples-close {
+  font-size: 0.9rem;
+  border: none;
+  background: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0;
+}
+
+.samples-close:hover {
+  color: #000;
 }
 
 /* Ensure clean bottom edge */
