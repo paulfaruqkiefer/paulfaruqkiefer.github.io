@@ -147,16 +147,18 @@ main {
 
 /* Close button */
 .samples-close {
-  font-size: 0.9rem;
+  font-family: 'EB Garamond', serif; /* match page font */
+  font-size: 1.2rem;
+  line-height: 1;
   border: none;
   background: none;
-  color: #666;
+  color: #000;                       /* black color */
   cursor: pointer;
   padding: 0;
 }
 
 .samples-close:hover {
-  color: #000;
+  color: #333;                       /* slightly darker on hover */
 }
 
 /* Ensure clean bottom edge */
@@ -197,7 +199,7 @@ h3 {
   background: none;                 /* remove background */
   cursor: pointer;
   white-space: nowrap;
-  color: #0645ad;                   /* optional: match link color */
+  color: #000;                   /* optional: match link color */
 }
 
 .samples-toggle:hover {
