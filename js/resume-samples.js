@@ -53,12 +53,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       /* Populate panel */
       const items = sampleContent[job] || ["No samples yet."];
-      panel.innerHTML = `
-        <h2>Sample Work</h2>
-        <ul>
-          ${items.map(item => `<li>${item}</li>`).join("")}
-        </ul>
+     panel.innerHTML = `
+        <div class="samples-panel-header">
+          <h2>Sample Work</h2>
+          <button class="samples-close" aria-label="Close sample work">[close]</button>
+        </div>
+        <ul>${items.map(item => `<li>${item}</li>`).join("")}</ul>
       `;
+
 
       /* Vertical alignment */
       const buttonRect = button.getBoundingClientRect();
