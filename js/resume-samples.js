@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
      panel.innerHTML = `
         <div class="samples-panel-header">
           <h2>Sample Work</h2>
-          <button class="samples-close" aria-label="Close sample work">[close]</button>
+          <button class="samples-close" aria-label="Close sample work">[x]</button>
         </div>
         <ul>${items.map(item => `<li>${item}</li>`).join("")}</ul>
       `;
