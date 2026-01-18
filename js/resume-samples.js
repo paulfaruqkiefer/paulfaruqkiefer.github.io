@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const job = button.dataset.job;
 
-      /* Close if clicking same job */
+      // Close if clicking the same job again
       if (currentJob === job) {
         layout.classList.remove("panel-open");
         panel.innerHTML = "";
@@ -51,27 +51,44 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      /* Populate panel */
+      // Populate panel
       const items = sampleContent[job] || ["No samples yet."];
-     panel.innerHTML = `
-        <div class="samples-panel-header">
+      panel.innerHTML = `
+        <div class="samples-panel-header" style="display:flex; justify-content:space-between; align-items:center;">
           <h2>Sample Work</h2>
-          <button class="samples-close" aria-label="Close sample work">[x]</button>
+          <button class="samples-close" aria-label="Close sample work">×</button>
         </div>
         <ul>${items.map(item => `<li>${item}</li>`).join("")}</ul>
       `;
 
+      // Attach close button handler
+      const closeBtn = panel.querySelector(".samples-close");
+      closeBtn.addEventListener("click", () => {
+        layout.classList.remove("panel-open");
+        panel.innerHTML = "";
+        panel.style.marginTop = "";
+        currentJob = null;
+      });
 
-      /* Vertical alignment */
+      // Vertical alignment: top of panel aligns with button
       const buttonRect = button.getBoundingClientRect();
       const columnRect = resumeColumn.getBoundingClientRect();
       const offset = buttonRect.top - columnRect.top;
-
       panel.style.marginTop = `${offset}px`;
 
-      /* Open panel */
+      // Open panel
       layout.classList.add("panel-open");
       currentJob = job;
     });
+  });
+
+  // Optional: close panel with Escape key
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && currentJob) {
+      layout.classList.remove("panel-open");
+      panel.innerHTML = "";
+      panel.style.marginTop = "";
+      currentJob = null;
+    }
   });
 });
