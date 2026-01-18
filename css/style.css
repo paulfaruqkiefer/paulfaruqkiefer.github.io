@@ -1,47 +1,72 @@
 /* =========================
-   Reset & base styles
-========================= */
+   GLOBAL RESET / BASE
+   ========================= */
+
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
-  font-family: 'EB Garamond', serif;
-  background-color: #f9f9f9;
-  color: #222;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #0f1115;
+  color: #eaeaea;
   line-height: 1.6;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
 /* =========================
-   Header
-========================= */
-.site-header {
-  min-height: 65vh;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url("../images/laurel.jpg");
-  background-size: cover;
-  background-position: center 40%;
-  color: #fff;
-  padding: 4rem 2rem;
+   HEADER + NAVIGATION
+   ========================= */
+
+header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #222;
+}
+
+.nav {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
 }
 
-.header-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
+.nav a {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #f5c400;     /* yellow buttons */
+  color: #111;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, transform 0.15s ease;
 }
+
+/* hover */
+.nav a:hover {
+  background-color: #ffd84d;
+  transform: translateY(-1px);
+}
+
+/* visited / active — KEEP YELLOW */
+.nav a:visited,
+.nav a:active {
+  color: #111;
+  background-color: #f5c400;
+}
+
 
 /* =========================
-   Resume layout
-========================= */
+   MAIN RESUME LAYOUT
+   ========================= */
+
 .resume-layout {
   display: flex;
   justify-content: center;
+  align-items: flex-start;   /* ⬅️ critical fix */
   max-width: 1200px;
   margin: 3rem auto;
   padding: 0 1.5rem;
@@ -49,93 +74,90 @@ body {
   transition: gap 0.3s ease;
 }
 
-.resume-column {
-  flex: 1;
-  min-width: 320px;
-  transition: flex 0.3s ease;
+/* when samples panel is open */
+.resume-layout.samples-open {
+  gap: 3rem;
 }
 
+
 /* =========================
-   Samples panel (in flow!)
-========================= */
+   RESUME PANEL
+   ========================= */
+
+.resume-panel {
+  flex: 1 1 auto;
+  max-width: 720px;
+}
+
+
+/* =========================
+   SAMPLES / WORK PANEL
+   ========================= */
+
 .samples-panel {
-  flex: 0 0 340px;          /* fixed width */
-  background-color: #f2f2f2;
-  border-radius: 6px;
-  padding: 2rem 1.5rem;
-  display: none;
+  flex: 0 0 340px;
+  align-self: flex-start;    /* ⬅️ prevents stretch */
+  height: auto;              /* ⬅️ content-sized */
+  padding: 2rem 1.5rem;      /* internal bottom spacing */
+  margin-bottom: 3rem;
 
-  /* animation */
-  opacity: 0;
-  transform: translateX(12px);
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease,
-    margin-top 0.2s ease;
+  background-color: #171a21;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
-/* Open state */
-.resume-layout.panel-open {
-  gap: 2rem;                /* centered gutter */
+.samples-panel h3 {
+  margin-top: 0;
 }
 
-.resume-layout.panel-open .samples-panel {
-  display: block;
-  opacity: 1;
-  transform: translateX(0);
+.samples-panel p:last-child {
+  margin-bottom: 0;          /* clean bottom edge */
 }
+
 
 /* =========================
-   Resume sections
-========================= */
-.resume-section {
-  background-color: #f2f2f2;
-  padding: 2rem;
-  border-radius: 6px;
-  margin-bottom: 2.5rem;
+   FOOTER
+   ========================= */
+
+footer {
+  padding: 2.5rem 1.5rem;
+  border-top: 1px solid #222;
+  text-align: center;
 }
 
-h3 {
-  font-size: 1.2rem;
-  margin-top: 1.5rem;
+.footer-links {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
-/* Sample button */
-.samples-toggle {
-  margin-left: 1rem;
-  font-size: 0.85rem;
-  padding: 0.25rem 0.5rem;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  white-space: nowrap;
+.footer-links a {
+  color: #f5c400;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
+
+.footer-links a:hover {
+  color: #ffd84d;
+}
+
+.footer-links a:visited {
+  color: #f5c400;
+}
+
 
 /* =========================
-   Responsive
-========================= */
+   RESPONSIVE
+   ========================= */
+
 @media (max-width: 900px) {
   .resume-layout {
     flex-direction: column;
-    gap: 0;
+    gap: 2rem;
   }
 
   .samples-panel {
     width: 100%;
-    margin-top: 2rem !important;
-    transform: none;
-  }
-}
-
-/* =========================
-   Print
-========================= */
-@media print {
-  .samples-panel {
-    display: none !important;
+    flex: none;
   }
 }
