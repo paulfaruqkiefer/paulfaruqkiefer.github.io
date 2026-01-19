@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sampleContent = {
     "wisconsin-watch": [
       `<a href="https://wisconsinwatch.org/2026/01/skilled-but-uncertain-immigrant-workers-and-employers-navigate-hiring-hurdles-under-trump/" target="_blank" rel="noopener">
-      Skilled but uncerain: Immigran workers and employers navigate hiring hurdles under Trump
+      Skilled but uncerain: Immigrant workers and employers navigate hiring hurdles under Trump
       </a>`,
       `<a href="https://wisconsinwatch.org/2026/01/wisconsin-refugee-resettlement-admission-agencies-trump-new-arrivals/" target="_blank" rel="noopener">
       Refugee resettlement agencies try to keep doors open as White House shuts out new arrivals
