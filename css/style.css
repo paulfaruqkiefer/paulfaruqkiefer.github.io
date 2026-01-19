@@ -81,7 +81,7 @@ main {
 .resume-layout {
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* 🔑 prevents vertical stretch */
+  align-items: flex-start; /* prevents vertical stretch */
   gap: 0;
   max-width: 1200px;
   margin: 3rem auto;
@@ -143,6 +143,8 @@ main {
   margin: 0;
   border-bottom: none;
   padding-bottom: 0;
+  font-size: 1.1rem;   
+  font-weight: 600;
 }
 
 /* Close button */
