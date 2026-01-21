@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sampleContent = {
     "wisconsin-watch": [
       `<a href="https://wisconsinwatch.org/2026/01/skilled-but-uncertain-immigrant-workers-and-employers-navigate-hiring-hurdles-under-trump/" target="_blank" rel="noopener">
-      Skilled but uncerain: Immigrant workers and employers navigate hiring hurdles under Trump
+      Skilled but uncertain: Immigrant workers and employers navigate hiring hurdles under Trump
       </a>`,
       `<a href="https://wisconsinwatch.org/2026/01/wisconsin-refugee-resettlement-admission-agencies-trump-new-arrivals/" target="_blank" rel="noopener">
       Refugee resettlement agencies try to keep doors open as White House shuts out new arrivals
@@ -113,15 +113,24 @@ document.addEventListener("DOMContentLoaded", () => {
         currentJob = null;
       });
 
-      // Vertical alignment: top of panel aligns with button
-      const buttonRect = button.getBoundingClientRect();
-      const columnRect = resumeColumn.getBoundingClientRect();
-      const offset = buttonRect.top - columnRect.top;
-      panel.style.marginTop = `${offset}px`;
+      // Desktop-only vertical alignment
+      if (window.innerWidth > 900) {
+        const buttonRect = button.getBoundingClientRect();
+        const columnRect = resumeColumn.getBoundingClientRect();
+        const offset = buttonRect.top - columnRect.top;
+        panel.style.marginTop = `${offset}px`;
+      } else {
+        panel.style.marginTop = "0";
+      }
 
-      // Open panel
+            // Open panel
       layout.classList.add("panel-open");
       currentJob = job;
+      
+      // Mobile: scroll panel into view
+      if (window.innerWidth <= 900) {
+        panel.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
   });
 
