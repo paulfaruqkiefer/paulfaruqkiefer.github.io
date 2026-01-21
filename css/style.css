@@ -191,6 +191,15 @@ h3 {
   justify-content: space-between;
 }
 
+.resume-section h3 {
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
 /* Sample-work button */
 .samples-toggle {
   margin-left: 1rem;
@@ -272,17 +281,16 @@ footer a {
 /* =========================
    Responsive behavior
 ========================= */
-@media (max-width: 900px) {
-  .resume-layout {
+@media (max-width: 600px) {
+  h3 {
     flex-direction: column;
-    gap: 0;
+    align-items: flex-start;
   }
 
-  .samples-panel {
-    width: 100%;
-    max-width: 100%;
-    margin-top: 2rem;
-    transform: none;
+  .samples-toggle {
+    margin-left: 0;
+    padding-left: 0;
+    font-size: 0.85rem;
   }
 }
 
