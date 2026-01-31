@@ -35,14 +35,29 @@ document.addEventListener("DOMContentLoaded", () => {
       `<a href="https://cnsmaryland.org/2025/08/06/many-towns-unprepared-for-derailments-hazmat-spills-that-can-trigger-fires-evacuations/" target="_blank" rel="noopener">
       Many towns unprepared for derailments, hazmat spills that can trigger fires, evacuations
       </a>`,
+       `<a href="https://cnsmaryland.org/2025/05/16/marylands-largest-underground-coal-mine-changes-hands/" target="_blank" rel="noopener">
+      Maryland's largest underground mine changes hands
+      </a>`,
       `<a href="https://cnsmaryland.org/2025/04/21/its-hard-to-become-a-city-but-these-residents-keep-trying/" target="_blank" rel="noopener">
       It’s hard to become a city, but these residents keep trying
       </a>`,
       `<a href="https://cnsmaryland.org/2025/03/13/maryland-lawmakers-target-the-tranquilizers-behind-recent-overdose-deaths/" target="_blank" rel="noopener">
       Maryland lawmakers target the tranquilizers behind recent overdose deaths
       </a>`,
+      `<a href="https://cnsmaryland.org/2025/03/04/gov-moores-proposed-tax-breaks-could-mean-service-cuts-in-lower-income-counties/" target="_blank" rel="noopener">
+      Gov. Moore’s proposed tax breaks could mean service cuts in lower-income counties
+      </a>`,
       `<a href="https://cnsmaryland.org/2025/02/21/dc-metro-faces-another-budget-cliff-but-maryland-lawmakers-may-kick-the-can/" target="_blank" rel="noopener">
       DC Metro transit needs money, but Maryland’s not in a great position to help
+      </a>`,
+      `<a href="https://cnsmaryland.org/2025/02/13/fearing-ice-raids-delmarva-immigrants-mostly-stay-home/" target="_blank" rel="noopener">
+      Fearing ICE raids, Delmarva immigrants mostly stay home
+      </a>`,
+      `<a href="https://cnsmaryland.org/2025/01/21/police-drones-are-flying-over-maryland-will-state-lawmakers-regulate-them/" target="_blank" rel="noopener">
+      Police drones are flying over Maryland. Will state lawmakers regulate them?
+      </a>`,
+      `<a href="https://cnsmaryland.org/2024/04/30/legal-gray-areas-hinder-police-watchdogs/" target="_blank" rel="noopener">
+      Legal gray areas hinder police watchdogs
       </a>`
     ],
     "delaware-public-media": [
